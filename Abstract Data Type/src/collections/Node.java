@@ -34,10 +34,7 @@ public class Node <T extends Comparable<T>> implements Comparable<Node<T>>, Seri
      */
     private LinkedList<Node<T>> children;
     
-    /**
-     * Data or information held by this node.
-     */
-    private T data;
+    private int currentIndex;
     
     /**
 	 * Parent node of this node.
@@ -45,7 +42,12 @@ public class Node <T extends Comparable<T>> implements Comparable<Node<T>>, Seri
     private Node<T> parent;
     
     /**
-     * Constructs a new node by supplying it with its data.
+     * Data or information held by this node.
+     */
+    private T root;
+    
+    /**
+     * Constructs a new node by supplying it with its root.
      * 
      * @param dataIn Data held by this node.
      */
@@ -53,7 +55,8 @@ public class Node <T extends Comparable<T>> implements Comparable<Node<T>>, Seri
     {
         parent = null;
         children = new LinkedList<>();
-        setData(dataIn);
+        currentIndex = -1;
+        setRoot(dataIn);
     }
     
     /**
@@ -63,24 +66,12 @@ public class Node <T extends Comparable<T>> implements Comparable<Node<T>>, Seri
      */
     public void add(Node<T> node)
     {
-        node.parent = this;
-        children.add(node);
+    	if (node != null)
+    	{
+    		node.parent = this;
+    		children.add(node);
+    	}
     }
-    
-    /**
-     * Compares this node against another for equality.
-     * 
-     * @return an integer representing the comparison 
-     * of the data held by this node. The returned integer 
-     * is determined per compareTo method defined by the data 
-     * element held by this node.
-     */
-	@Override
-	public int compareTo(Node<T> otherNode) 
-	{
-		return (this.getData()).compareTo(otherNode.getData());
-		
-	}
     
     /**
      * Removes all the children but not the node itself.
@@ -94,16 +85,47 @@ public class Node <T extends Comparable<T>> implements Comparable<Node<T>>, Seri
     }
     
     /**
+     * Compares this node against another for equality.
+     * 
+     * @return an integer representing the comparison 
+     * of the root held by this node. The returned integer 
+     * is determined per compareTo method defined by the root 
+     * element held by this node.
+     */
+	@Override
+	public int compareTo(Node<T> otherNode) 
+	{
+		return (this.toString()).compareTo(otherNode.toString());
+		
+	}
+    
+	/**
+	 * Indicates whether this node is "equal to" another node. Two nodes are equals
+	 * when they have the same data.
+	 * 
+	 * @param otherNode Node to be compared against.
+	 * @return true if this object is the same as the otherNode argument; false
+	 *         otherwise.
+	 */
+	public boolean equals(Node<T> otherNode)
+    {
+		return this.compareTo(otherNode) == 0 ? true : false;
+    }
+    
+    /**
      * Retrieves the element at the specified position.
      * 
      * @param index Index of the element to be retrieved.
      * @return The child at the specified position.
-     * @throws IndexOutOfBoundsException if index out of range (index < 0 || index >= getNumberOfChildren())
+     * @throws IndexOutOfBoundsException if index out of range {@code (index < 0 || index >= getNumberOfChildren())}
      */
     public Node<T> getChildAt(int index) throws IndexOutOfBoundsException
     {
         if (validIndex(index))
-            return children.get(index);
+        {
+        	currentIndex = index;
+        	return children.get(index);
+        }
         
         throw new IndexOutOfBoundsException();
     }
@@ -119,13 +141,29 @@ public class Node <T extends Comparable<T>> implements Comparable<Node<T>>, Seri
     }
     
     /**
-     * Retrieves the data about this node.
+     * Retrieves the root about this node.
      * 
      * @return Data held by this node.
      */
     public T getData()
     {
-        return data;
+        return root;
+    }
+    
+    /**
+     * Retrieves the next element of this node.
+     * 
+     * @return Returns the next element of this node.
+     */
+    public Node<T> getNext()
+    {
+    	if (!children.isEmpty() && currentIndex < children.size() - 1)
+    	{
+    		currentIndex++;
+    		return children.get(currentIndex);
+    	}
+    	
+    	return null;
     }
     
     /**
@@ -149,6 +187,56 @@ public class Node <T extends Comparable<T>> implements Comparable<Node<T>>, Seri
     }
     
     /**
+     * Retrieves the previous element of this node.
+     * 
+     * @return Returns the previous element of this node.
+     */
+    public Node<T> getPrevious()
+    {
+    	if (currentIndex > 0)
+    	{
+    		currentIndex--;
+    		return children.get(currentIndex);
+    	}
+    	
+    	return null;
+    }
+    
+    /**
+	 * Implements the pre-ordering traversal.
+	 * 
+	 * @param rootIn Node to start printing.
+	 * @return The pre-order traversal of this node; otherwise null if the argument
+	 *         is null.
+	 */
+    public String printTreePreOrder(Node<T> rootIn)
+    {
+    	if (rootIn != null)
+    	{
+    		StringBuilder output = new StringBuilder(); 
+    		
+    		if (rootIn.getNumberOfChildren() != 0)
+    		{
+    			output.append(rootIn + "*");
+    		}
+    		else
+    		{
+    			output.append(" " + rootIn);
+    		}
+    		
+    		int tempSize = rootIn.getNumberOfChildren();
+    		
+    		for (int index = 0; index < tempSize; index++)
+    		{
+    			output.append(printTreePreOrder(rootIn.getChildAt(index)));
+    		}
+    		
+    		return output.toString();
+    	}
+    	return null;
+    }
+    
+    /**
      * Removes the last child of this node.
      * 
      * @return The last child of this node.
@@ -168,13 +256,14 @@ public class Node <T extends Comparable<T>> implements Comparable<Node<T>>, Seri
     }
     
     /**
-     * Sets the data held by this node.
+     * Sets the root held by this node.
      * 
      * @param dataIn Data held by this node.
      */
-    public void setData(T dataIn)
+    public void setRoot(T dataIn)
     {
-        data = dataIn;
+        root = dataIn;
+        clear();
     }
     
     /**
@@ -190,10 +279,10 @@ public class Node <T extends Comparable<T>> implements Comparable<Node<T>>, Seri
     }
 
     /**
-	 * Returns a string representation of the data held by 
+	 * Returns a string representation of the root held by 
 	 * this node.
 	 * 
-	 * @return The string representation of the data held by
+	 * @return The string representation of the root held by
 	 * this node.
 	 */
 	@Override
@@ -203,14 +292,14 @@ public class Node <T extends Comparable<T>> implements Comparable<Node<T>>, Seri
 	}
 	
 	/**
-     * Changes the data held by this node.
+     * Changes the root held by this node.
      * 
      * @param dataIn Data to be held by this node.
      * @return The modified node.
      */
-    public Node<T> updateData(T dataIn)
+    public Node<T> updateRoot(T dataIn)
     {
-    	setData(dataIn);
+    	setRoot(dataIn);
     	return this;
     }
 	
