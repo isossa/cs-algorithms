@@ -1,3 +1,5 @@
+The Algorithm Design Manual by Steven S. Skiena - Notes
+
 An algorithm is a procedure to accomplish a specific task. It is a procedure that takes any of the possible input instances and transforms it to the desired output. [Skiena08]
 There are three desirable properties for a good algorithm:
 a. Correctness
