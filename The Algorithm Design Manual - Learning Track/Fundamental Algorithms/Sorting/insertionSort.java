@@ -1,4 +1,11 @@
-// This file implements the insertion sort algorithm
+/* 
+ * This file implements the insertion sort algorithm.
+ * 
+ * Complexity: Quadratic-time complexity.
+ * Big-Oh Notation: O(N^2), where N is the input size.
+ * Input: Presumably unsorted array.
+ * Output: Sorted array.
+ */
 
 /**
  * Implementation of the insertion sort.
