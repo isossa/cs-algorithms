@@ -14,7 +14,7 @@
  * @param pattern Text pattern to match.
  * @return True if STR contains PATTERN.
  */
-public static boolean findMatch(String str, String pattern)
+public static boolean isSubstring(String str, String pattern)
 {
 	// Initialize counters
 	int i = 0, j = 0;
