@@ -1,10 +1,19 @@
 /*
- * Substring pattern matching solver
+ * This file implements two different substring pattern matching solver algorithms
  *
- * Input: A text string t and a pattern string p
- * Output: Does t contain the pattern p as a substring, and if so where?
+ * Complexity: Quadratic-time complexity.
+ * Big-Oh Notation: O(S*P) where S is the size of the text string and P the size of the pattern to match. Presumably, P <= S.
+ * Input: A text string STR and a pattern string PATTERN
+ * Output: Does STR contain the pattern PATTERN as a substring, and if so where?
  */
- 
+
+/**
+ * Implements a pattern matching solver.
+ * 
+ * @param str     Text string that may or may not contain the patter to match.
+ * @param pattern Text pattern to match.
+ * @return True if STR contains PATTERN.
+ */
 public static boolean isSubstring(String str, String pattern)
 {
 	// Initialize counters
@@ -23,13 +32,19 @@ public static boolean isSubstring(String str, String pattern)
 			{
 				return true;
 			}
-
 			j++;
 		}
 	}	
 	return false;
 }
 
+/**
+ * Implements a pattern matching solver.
+ * 
+ * @param str     Text string that may or may not contain the patter to match.
+ * @param pattern Text pattern to match.
+ * @return True if STR contains PATTERN.
+ */
 public static boolean findMatch(String str, String pattern)
 {
 	// Initialize counters
@@ -54,6 +69,5 @@ public static boolean findMatch(String str, String pattern)
 			return true;
 		}
 	}
-
 	return false;
 }
