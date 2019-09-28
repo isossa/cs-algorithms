@@ -8,13 +8,13 @@
  */
 
 /**
- * Implements a pattern matching solver.
+ * Implements a pattern matching solver that identifies if a substring can be created out of another string by deleting characters.
  * 
  * @param str     Text string that may or may not contain the patter to match.
- * @param pattern Text pattern to match.
+ * @param pattern Text pattern to build.
  * @return True if STR contains PATTERN.
  */
-public static boolean isSubstring(String str, String pattern)
+public static boolean canConstructSubstring(String str, String pattern)
 {
 	// Initialize counters
 	int i = 0, j = 0;
