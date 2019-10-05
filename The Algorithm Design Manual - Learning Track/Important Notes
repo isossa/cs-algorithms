@@ -16,3 +16,6 @@ Many proof techniques exist to help you in this endeavor, one of which is counte
 
 Good algorithm problems have two essential parts (1) the set of allowed input instances and (2) the required properties of the algorithm's output.
 
+Logarithms
+A logorithm is the inverse of an exponential function. Therefore, b^x = y <=> x = log_b(y). A powerful example of logarithmic algorithm (anagram of each otther) is the binary search.
+
