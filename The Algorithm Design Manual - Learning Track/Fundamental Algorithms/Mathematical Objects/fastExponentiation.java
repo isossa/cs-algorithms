@@ -15,7 +15,7 @@
  * @param exp Any positive integer.
  * @return BASE^EXP
  */
-public static long power(int base, int exp)
+public static long fastExponentiation(int base, int exp)
 {
   if (exp == 0)
     return 1;
