@@ -1,11 +1,11 @@
 /**
- * This file implements an algorithm for merging N sorted linked lists into one single sorted linked list.
+ * This file implements an algorithm for merging N linked lists into one single sorted linked list.
  * In this implementation, we assume that the size K of each linked list is <<< than the number of linked lists 
  * there are to merge.
  * 
  * Complexity: Linear time complexity
  * Big-Oh Notation: O(N), where N is the size of the input list.
- * Input: List of N sorted linkedlists.
+ * Input: List of N linkedlists.
  * Output: One single sorted linked lists.
  * Author: connect.with.isidore@gmail.com
  */
