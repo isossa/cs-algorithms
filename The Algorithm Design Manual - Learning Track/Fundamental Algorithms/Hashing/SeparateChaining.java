@@ -1,5 +1,7 @@
 /* 
 * This file implements a hashtable using the separate chaining collision resolution scheme.
+* 
+* Author: connect.with.isidore@gmail.com
 */
 
 import java.util.Iterator;
