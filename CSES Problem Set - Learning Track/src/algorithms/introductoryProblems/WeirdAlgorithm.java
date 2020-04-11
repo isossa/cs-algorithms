@@ -21,6 +21,7 @@ import java.util.Scanner;
  */
 
 /**
+ * A solution to the Weird Algorithm.
  * 
  * @author Isidore Sossa
  */
@@ -35,7 +36,7 @@ public class WeirdAlgorithm
 	{
 		Scanner in = new Scanner(new BufferedReader(new InputStreamReader(System.in)));
 		
-		solution(in.nextInt());
+		solution(in.nextLong());
 		
 		in.close();
 	}
@@ -47,7 +48,7 @@ public class WeirdAlgorithm
 	 * 
 	 * @param n positive integer.
 	 */
-	private static void solution(int n)
+	private static void solution(long n)
 	{
 		System.out.println(helper(n, ""));
 	}
@@ -59,7 +60,7 @@ public class WeirdAlgorithm
 	 * @param output output string
 	 * @return output string representing sequence of integers.
 	 */
-	private static String helper(int n, String output)
+	private static String helper(long n, String output)
 	{
 		if (n <= 1)
 		{
