@@ -1,3 +1,5 @@
+package fundamentals.hashing;
+
 /* 
 * This file implements a hashtable using the separate chaining collision resolution scheme.
 * 

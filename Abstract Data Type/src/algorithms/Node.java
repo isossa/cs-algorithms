@@ -6,14 +6,13 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Representation of a node element. It can be used to implement any possible abstract data types
- * that use node. No assumption is made about the ordering of the node and its relation with its 
- * elements.
+ * Representation of a node element. It can be used to implement any possible
+ * abstract data type that uses nodes. No assumption is made about the ordering
+ * of the node and its relation with its elements.
  * 
- * It provides mechanisms for performing operations that could be expected for a node.
- * It relies on the implementation of the doubly-linked list as provided by the Java programming 
- * language API.
- * <br>
+ * It provides mechanisms for performing operations that could be expected for a
+ * node. It relies on the implementation of the doubly-linked list as provided
+ * by the Java programming language API. <br>
  * <br>
  * <b>This implementation is not synchronized.</b>
  * 

@@ -42,15 +42,15 @@ public class Repetitions
 	{
 		InputStreamReader inStream = new InputStreamReader(System.in);
 		
-		Scanner in = new Scanner(new BufferedReader(inStream));
+		//Scanner in = new Scanner(new BufferedReader(inStream));
 		
 		// Cool solution
-		System.out.println(solution_1(in.nextLine()));
+		//System.out.println(solution_1(in.nextLine()));
 		
 		// Cooler solution
 		System.out.println(solution_2(inStream));
 		
-		in.close();
+		//in.close();
 	}
 	
 	/**

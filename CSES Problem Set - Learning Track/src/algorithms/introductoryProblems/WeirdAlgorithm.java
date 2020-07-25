@@ -13,7 +13,7 @@ import java.util.Scanner;
  * repeats this, until n is one. 
  * 
  * For example, the sequence for n=3 is as follows:
- * 3→10→5→16→8→4→2→1
+ * 3 10 5 16 8 4 2 1
  * 
  * Your task is to simulate the execution of the algorithm for a given value of n.
  * 
@@ -67,7 +67,7 @@ public class WeirdAlgorithm
 			return output + 1;
 		}
 		
-		output += n + " -> ";
+		output += n + " ";
 		
 		if (n % 2 == 0)
 		{

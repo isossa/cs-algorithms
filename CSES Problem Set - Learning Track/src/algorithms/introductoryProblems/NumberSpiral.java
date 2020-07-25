@@ -15,7 +15,7 @@ package algorithms.introductoryProblems;
  * 			| 16 | 15 | 14 | 13 | 22 |
  * 			--------------------------
  * 			| 17 | 18 | 19 | 20 | 21 |
- * 			-------------------------- 
+ * 			--------------------------
  * 
  * Your task is to find out the number in row y and column x.
  * Input: The first input line contains an integer t: the number of tests.
@@ -33,6 +33,8 @@ package algorithms.introductoryProblems;
  * 8
  * 1
  * 15
+ * 
+ * Source: https://cses.fi/problemset/task/1071
  */
 
 /**
