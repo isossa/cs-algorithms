@@ -26,6 +26,7 @@ public class WordSearch
 				wordFound.add(word);
 			}
 		}
+		
 		System.out.println(wordFound);
 	}
 	
