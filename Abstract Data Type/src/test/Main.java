@@ -2,12 +2,15 @@ package test;
 
 import algorithms.BST;
 import algorithms.BinaryTree;
+import algorithms.LinkedStack;
+import algorithms.Stack;
 import algorithms.TreeNode;
 
 public class Main
 {
 	public static void main(String[] args)
 	{
+		/*
 		System.out.println("BINARY SEARCH TREE");
 		BST tree = new BST();
 		int[] values = {4, 3, 1, 2, 5};
@@ -43,5 +46,20 @@ public class Main
 		}
 		
 		btree.printPreOrderTraversal(btree.root);
+		*/
+		
+		Stack stack = new Stack();
+		stack.push(1);
+		stack.push(2);
+		stack.push(3);
+		System.out.println(stack.pop());
+		System.out.println(stack.pop());
+		
+		LinkedStack linkedStack = new LinkedStack();
+		linkedStack.push(1);
+		linkedStack.push(2);
+		linkedStack.push(3);
+		System.out.println(linkedStack.pop());
+		System.out.println(linkedStack.pop());
 	}
 }
