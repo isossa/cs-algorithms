@@ -2,6 +2,7 @@ package test;
 
 import algorithms.BST;
 import algorithms.BinaryTree;
+import algorithms.CustomLinkedStack;
 import algorithms.LinkedStack;
 import algorithms.Stack;
 import algorithms.TreeNode;
@@ -48,6 +49,7 @@ public class Main
 		btree.printPreOrderTraversal(btree.root);
 		*/
 		
+		/*
 		Stack stack = new Stack();
 		stack.push(1);
 		stack.push(2);
@@ -61,5 +63,23 @@ public class Main
 		linkedStack.push(3);
 		System.out.println(linkedStack.pop());
 		System.out.println(linkedStack.pop());
+		*/
+		
+		CustomLinkedStack<Integer> customLinkedStack = new CustomLinkedStack<Integer>();
+		System.out.println(customLinkedStack);
+		
+		customLinkedStack.push(1);
+		customLinkedStack.push(2);
+		customLinkedStack.push(3);
+		customLinkedStack.push(4);
+		
+		int n = Integer.valueOf(String.valueOf(customLinkedStack.pop()));
+		System.out.println(n + 10);
+		
+		System.out.println(customLinkedStack.pop());
+		System.out.println(customLinkedStack.pop());
+		System.out.println(customLinkedStack.peek());
+		
+		System.out.println(customLinkedStack);
 	}
 }
